@@ -218,6 +218,15 @@
             <artifactId>itextpdf</artifactId>
             <version>5.5.7</version>
         </dependency>
+        
+        <!-- read properties -->
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.7</version>
+            <scope>provided</scope>
+        </dependency>
+
     </dependencies>
 
 
