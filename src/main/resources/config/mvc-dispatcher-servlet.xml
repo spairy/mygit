@@ -1,32 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    classpath:/org/springframework/beans/factory/xml/spring-beans-3.2.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    classpath:/org/springframework/context/config/spring-context-3.2.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+    classpath:/org/springframework/web/servlet/config/spring-mvc-3.2.xsd
+    http://www.springframework.org/schema/aop  
+    classpath:/org/springframework/aop/config/spring-aop-3.2.xsd
+    http://www.springframework.org/schema/tx 
+    classpath:/org/springframework/transaction/config/spring-tx-3.2.xsd">
 
 	<!-- 默认的注解映射的支持 -->
 	<mvc:annotation-driven />
-	
+	<aop:aspectj-autoproxy />
+
 	<context:component-scan base-package="com.mvc.func.*" />
 
 	<!-- welcome page -->
 	<mvc:view-controller path="/" view-name="index" />
-	
-	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" cache-period="31536000"/>
+
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"
+		cache-period="31536000" />
 
 	<!-- Register the Customer.properties -->
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="validatorProperties/message" />
 	</bean>
-	
+
 	<!-- 避免IE在ajax请求时，返回json出现下载 -->
 	<bean id="jacksonMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
@@ -38,9 +43,10 @@
 	</bean>
 
 	<!-- viewResolver,会在classpath找名为views.properties的文件 -->
-    <bean id="viewResolverBundle" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
-  		<property name="order" value="0"/>
-  		<property name="basename" value="config/views"/><!-- 根据这个获取properties文件 -->
+	<bean id="viewResolverBundle"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+		<property name="order" value="0" />
+		<property name="basename" value="config/views" /><!-- 根据这个获取properties文件 -->
 	</bean>
 
 	<!-- freemarker config -->
@@ -66,7 +72,7 @@
 			</props>
 		</property>
 	</bean>
-	
+
 	<!-- View resolvers can also be configured with ResourceBundles or XML files. 
 		If you need different view resolving based on Locale, you have to use the 
 		resource bundle resolver. -->
@@ -87,7 +93,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/" />
 		<property name="suffix" value=".jsp" />
-		<property name="contentType" value="text/html;charset=UTF-8"/>
+		<property name="contentType" value="text/html;charset=UTF-8" />
 		<property name="order" value="2" />
 	</bean>
 
