@@ -1,4 +1,4 @@
-package com.chendu.ws;
+package com.mvc.func.ws;
 
 import javax.jws.WebMethod;
 import javax.jws.WebService;

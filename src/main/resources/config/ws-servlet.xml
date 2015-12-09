@@ -15,6 +15,6 @@
 		</wss:service>
 	</wss:binding>
 	
-	<bean id="helloWs" class="com.chendu.ws.HelloWorldWS" />
+	<bean id="helloWs" class="com.mvc.func.ws.HelloWorldWS" />
 
 </beans>

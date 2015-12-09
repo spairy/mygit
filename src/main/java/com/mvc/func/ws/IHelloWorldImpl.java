@@ -1,4 +1,4 @@
-package com.chendu.ws;
+package com.mvc.func.ws;
 
 import org.springframework.stereotype.Service;
 
