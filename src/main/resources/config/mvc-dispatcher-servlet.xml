@@ -97,4 +97,11 @@
 		<property name="order" value="2" />
 	</bean>
 
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/interceptor/**" />
+			<bean class="com.mvc.func.interceptor.MyInterfeptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>

@@ -47,6 +47,14 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+	<filter>
+	    <filter-name>dojoIframeFilter</filter-name>
+	    <filter-class>com.mvc.func.interceptor.InterceptorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>dojoIframeFilter</filter-name>
+	    <url-pattern>/interceptor/*</url-pattern>
+	</filter-mapping>
     <!-- 日志记录 -->
     <context-param>
         <!-- 日志配置文件路径 -->
