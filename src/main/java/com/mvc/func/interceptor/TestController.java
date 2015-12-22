@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mvc.func.json.Shop;
-
 @Controller
 @RequestMapping("/interceptor")
 public class TestController {
@@ -19,6 +17,7 @@ public class TestController {
 		Shop shop = new Shop();
 		shop.setName("nxxx");
 		shop.setStaffName(new String[]{"Jeff", "Steven"});
+		shop.setCode("ERR_SYSTEM_001");
 		return shop;
 	}
 
